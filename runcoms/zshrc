@@ -4,7 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
+export TERM="xterm-256color"
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -80,5 +80,21 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv background_jobs command_execution_time time vi_mode)
 POWERLEVEL9K_SHOW_CHANGESET=true
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH="/Users/jasonz/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jasonz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jasonz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jasonz/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jasonz/perl5"; export PERL_MM_OPT;
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+if [[ -s "$HOME/.not_public" ]]; then
+  source "$HOME/.not_public"
+fi
 
